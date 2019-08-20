@@ -1,0 +1,297 @@
+@import url(https://weloveiconfonts.com/api/?family=fontawesome);
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.main_menu,.settings,.editor_menu {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  left: 0px;
+}
+.settings,.editor_menu {
+  left: 146px;
+}
+
+.main_menu > div {
+  float: left;
+}
+
+.list-group-item {
+  padding: 5px 10px;
+}
+.group_cell {
+  padding: 2px;
+  border: 1px solid rgba(0,0,0,.125);
+  border-left: none;
+}
+.group_cell:first-child {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-left: 1px solid rgba(0,0,0,.125);
+}
+.group_cell:last-child {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.colors button {
+  color: transparent!important;
+  font-size: 14px;
+}
+.game_statistic {
+  position: fixed; top: 0; width: 500px; left: 50%; margin-left: -250px; height: 35px; border: 1px solid black; background-color: #dedede; border-radius: 3px; z-index: 10;
+  display: none;
+}
+
+.game_log,.system_log {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.system_log_text {
+  overflow-y: scroll;
+  padding: 10px;
+}
+.editor_menu {
+  font-size: 12px;
+}
+.editor_menu .card-header {
+  font-size: 14px;
+}
+.editor_menu input {
+  padding: 10px;
+}
+.editor_menu .input-group-text {
+  padding: 5px;
+}
+.game_log_header {
+    font-size: 16px;
+    line-height: 34px;
+}
+.game_log_text {
+  display: block;
+  width: 100%;
+  line-height: 110%;
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  height: calc(100% - 107px);
+  background-color: #93F0FF;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+.game_wizard {
+  display: none;
+  position: fixed; bottom: 0; left: 0; height: 100px; width: 200px; border: 1px solid black; background-color: #dedede; border-radius: 3px; z-index: 10;
+}
+.loader_background {
+  position: fixed;  left: 0;  right: 0; top: 0; bottom: 0; background-color: #999999; opacity: 0.7; z-index: 20;
+}
+  
+.load_window {
+  position: fixed; width: 350px; height: 100px; top: 50%; left: 50%; margin-left: -175px; margin-top: -50px; border: 1px solid black; border-radius: 3px; background-color: #dedede; z-index: 25;
+}
+.load_process {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  float: left;
+  height: 9px;
+  padding: 3px;
+  background-color: #ffffff;
+}
+  
+.load_status {
+  width: 1%;
+  background-color: blue;
+  height: 9px;
+}
+  
+.load_text {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+.konvajs-content {
+  margin: auto;
+}
+.toast {
+  opacity: 1;
+  margin-bottom: 2px!important;
+}
+.toast-body {
+  padding: 5px 10px;
+  color: #333333;
+}
+
+
+.green {
+  background-color: #05BC05;
+}
+.green:hover {
+  background-color: #049104;
+}
+
+.yellow {
+  background-color: #EBEB00;
+}
+.yellow:hover {
+  background-color: #D3D300;
+}
+
+.orange {
+  background-color: #FF6A00;
+}
+.orange:hover {
+  background-color: #CE7100;
+}
+
+.blue {
+  background-color: #00C8C8;
+}
+.blue:hover {
+  background-color: #009E9E;
+}
+
+.white {
+  background-color: #D7D8D4;
+}
+.white:hover {
+  background-color: #B7B7B5;
+}
+
+.red {
+  background-color: #BC0000;
+}
+.red:hover {
+  background-color: #890000;
+}
+
+.black {
+  background-color: #4C4C4C;
+}
+.black:hover {
+  background-color: #2D2D2D;
+}
+
+.purple {
+  background-color: #4800FF;
+}
+.purple:hover {
+  background-color: #2C00A5;
+}
+
+.brown {
+  background-color: #7F3300;
+}
+.brown:hover {
+  background-color: #562200;
+}
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #4285F4; }
+
+.scrollbar-danger::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-danger::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-danger::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #ff3547; }
+
+.scrollbar-warning::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-warning::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-warning::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #FF8800; }
+
+.scrollbar-success::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-success::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-success::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #00C851; }
+
+.scrollbar-info::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-info::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-info::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #33b5e5; }
+
+.scrollbar-default::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-default::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-default::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #2BBBAD; }
+
+.scrollbar-secondary::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar-secondary::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar-secondary::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #aa66cc; }
