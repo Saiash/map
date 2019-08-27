@@ -1,0 +1,224 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/konva@3.2.4/konva.min.js"></script>
+
+    <script src="https://delirious-kettle.glitch.me/public/lib/border.js"></script>
+    <script src="https://delirious-kettle.glitch.me/public/lib/token_borders.js"></script>
+    <script src="https://delirious-kettle.glitch.me/public/entities.js"></script>
+    <script src="https://delirious-kettle.glitch.me/public/canvas.js"></script>
+    <script src="https://delirious-kettle.glitch.me/public/system.js"></script>
+    <script src="https://delirious-kettle.glitch.me/public/lib/download.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/public/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz&display=swap&subset=cyrillic" rel="stylesheet">
+
+    <meta charset="utf-8" />
+    <title>Interactive map</title>
+</head>
+<body>
+    <!-- контейнер для всего интерфейса -->
+    <div class="interface_layout">
+        <div class="main_menu">
+            <div class="btn-group-vertical">
+                <button type="button" data-class="left" class="btn btn-info left active" onclick="$('.settings').toggle();">Управление</button>
+                <button type="button" data-class="left" class="btn btn-info left" onclick="$('.editor_menu').toggle();">Редактирование</button>
+                <button type="button" data-class="right" class="btn btn-info right" onclick="$('.game_log').toggle();">Заметки</button>
+                <button type="button" data-class="right" class="btn btn-info right active" onclick="$('.system_log').toggle();">Лог</button>
+                <button type="button" class="btn btn-info" onclick="$('.editor_menu').toggle();">Файлы</button>
+                <button type="button" class="btn btn-info" onclick="$('.editor_menu').toggle();">Настройки</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">HELP!</button>
+
+            </div>
+            <div class="card settings">
+                <div class="card-header" style="padding: 5px 10px;">Управление</div>
+                <div class="card-body" style="padding: 10px;">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"># save</span>
+                        </div>
+                        <input style="width: 100px;" value="14" type="text" class="form-control save_load" aria-label="Amount (to the nearest dollar)">
+                        <div class="input-group-append">
+                            <button class="load_button" data-toggle="tooltip" data-placement="top" title="Load"><span class="fontawesome-folder-open-alt"></span></button>
+                            <button class="save_button" data-toggle="tooltip" data-placement="top" title="Save"><span class="fontawesome-save"></button>
+                            <button id="save" data-toggle="tooltip" data-placement="top" title="Download"><span class="fontawesome-download"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card editor_menu" style="display: none;">
+                <div class="card-header" style="padding: 5px 10px;">Редактирование <span style="float: right; margin-top: 3px;" class="badge badge-secondary badge-pill coords">0:0</span></div>
+
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="colors">
+                        <label style="margin-right: 13px; ">Выбор цвета:</label>
+                        <div class="btn-group">
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker green" data-color="green">1</button>
+                            </div>
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker yellow" data-color="yellow">1</button>
+                            </div>
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker orange" data-color="orange">1</button>
+                            </div>
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker blue"  data-color="blue">1</button>
+                            </div>
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker white" data-color="white">1</button>
+                            </div> 
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker red"  data-color="red">1</button>
+                            </div>
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker black"  data-color="black">1</button>
+                            </div>
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker purple" data-color="purple">1</button>
+                            </div>
+                            <div class="group_cell">
+                                <button class="btn btn-sm color_picker brown"  data-color="brown">1</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item placment_settings">
+                    <label style="display: block; float: left; line-height: 38px; margin-right: 9px; margin-bottom: 0px;">Расположение:</label>
+                    <form class="form-inline" style="float: left; margin-bottom: 0px;">
+                        <div class="input-group" style="width: 92px; padding-right: 5px;">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">x</div>
+                            </div>
+                            <input type="text" class="x_input form-control" value="auto">
+                        </div>
+                        <div class="input-group" style="width: 92px; padding-right: 5px;">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">y</div>
+                            </div>
+                            <input type="text" class="y_input form-control"  value="auto"   >
+                        </div>
+                        <div class="input-group" style="width: 92px; padding-right: 5px;">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">size</div>
+                            </div>
+                            <input type="text" class="size_input form-control" value="0.4">
+                        </div>
+                    </form>
+                </li>
+                <li class="list-group-item">
+                    <select class="add_object" style="width: 100%;">
+                        <option value="--">v Выберите объект из списка v</option>
+                    </select>
+                </li>
+                 </ul>
+            </div>
+        </div>
+
+
+        <div class="card text-white bg-info game_log" style="width: 250px; display: none;">
+            <div class="card-header" style="padding: 5px 10px; "><span class="game_log_header">Заметки</span><button class="btn btn-secondary notes_statistic" style="float: right;"><span class="fontawesome-edit"></span></button></div>
+            <div class="card-body" style="padding: 10px;">
+                    <textarea class="game_log_text"></textarea> 
+                    <input class="game_log_id" style="display: none;">
+                    <button class="game_log_save btn btn-primary" style="width: 100%;">Save</button>
+            </div>
+        </div>
+
+        <div class="card text-white bg-info system_log" style="width: 250px;">
+            <div class="card-header" style="padding: 5px 10px; ">Системный лог</div>
+            <div class="card-body system_log_text  scrollbar scrollbar-default">
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- основное поле карты -->
+    <div class="main_body" style="width: 500px; height: 500px;     overflow: hidden; margin-left: 250px;">
+      <div id="container"></div>
+    </div>
+
+    <script>     
+    	let main_container = new Canvas('container');
+      let entity_container = new entity_manager(main_container);
+      let game = new controls(main_container, entity_container);    
+  
+      game.set_selector('.save_load', 'server_id');
+      game.set_selector('.game_log_id', 'entity_id');
+      //game.set_selector('.game_log_id', 'log_id');
+      game.set_selector('.coords', 'coords');
+      
+      game.set_selector('.load_button', 'load');
+      game.set_selector('.save_button', 'save');
+      game.set_selector('.notes_statistic', 'statistic');
+      game.set_selector('.game_log_save', 'save_note');
+      game.set_selector('.add_object', 'select_changed', 'change');
+      game.set_selector('.color_picker', 'change_color');
+      game.set_selector('#save', 'download');
+      
+      game.set_selector('.game_log_header', 'log_header');
+      
+      game.set_selector('.main_menu button', 'menu_buttons'); 
+      game.set_selector(document, 'calculate_coordinats', 'mousemove');
+      
+      game.set_selector('.game_log_text', 'game_log_text', 'focus'); 
+
+
+      $(document).ready(function() {$('.add_object').select2();});
+      $('button').tooltip({ boundary: 'window' })
+      
+      //data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?"
+      //или модальные окна
+      $('.link_to_info').popover({
+        trigger: 'focus'
+      })
+    
+    </script>
+      
+      
+    <div class="system_log_message_template">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="mr-auto">{{left_info}}</strong>
+            <small class="text-muted">{{right_info}}</small>
+          </div>
+          <div class="toast-body">
+            {{text}}
+          </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+</body>
+</html>

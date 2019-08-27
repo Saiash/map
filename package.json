@@ -1,0 +1,20 @@
+{
+  "name": "discord.js-heroku",
+  "version": "1.0.0",
+  "description": "An in-depth guide on deploying your Discord.js bot on Heroku",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "synicalsyntax",
+  "license": "MIT",
+  "dependencies": {
+    "canvas": "^2.0.1",
+    "discord.js": "^11.2.1",
+    "enmap": "^0.3.2",
+    "express": "^4.15.5",
+    "moment": "^2.18.1",
+    "moment-duration-format": "^1.3.0"
+  }
+}
